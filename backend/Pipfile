@@ -7,8 +7,10 @@ name = "pypi"
 django-rest-knox = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+psycopg2-binary = "*"
+pillow = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3"
