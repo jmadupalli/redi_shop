@@ -129,7 +129,7 @@ export default function RegisterForm() {
         <h6 className="link footer-link">
           Already have an account? &nbsp;
           <Link className="link footer-link" to="/login">
-            <span style={{ color: "#000000" }}>Sign In ></span>
+            <span style={{ color: "#000000" }}>Sign In </span>
           </Link>
         </h6>
       </div>

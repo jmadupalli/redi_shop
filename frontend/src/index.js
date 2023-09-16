@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { render } from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import { CartProvider } from "./contexts/cartContext";
 import { AuthProvider } from "./contexts/authContext";
@@ -18,34 +18,21 @@ const App = () => {
     <AuthProvider>
       <CartProvider>
         <div>
-          <Router>
-            <Suspense fallback={<Loader />}>
-              <Switch>
-                <Route path="/product">
-                  <ProductPage />
-                </Route>
-                <Route exact path="/cart">
-                  <CartPage />
-                </Route>
-                <Route exact path="/login">
-                  <LoginPage form="login" />
-                </Route>
-                <Route exact path="/register">
-                  <LoginPage form="register" />
-                </Route>
-                <Route exact path="/logout">
-                  <Logout />
-                </Route>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-              </Switch>
-            </Suspense>
-          </Router>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/product" element={<ProductPage />} />
+              <Route exact path="/cart" element={<CartPage />} />
+              <Route exact path="/login" element={<LoginPage form="login" />} />
+              <Route exact path="/register" element={<LoginPage form="register" />} />
+              <Route exact path="/logout" element={<Logout />} />
+              <Route exact path="/" element={<HomePage />} />
+            </Routes>
+          </Suspense>
         </div>
       </CartProvider>
     </AuthProvider>
   );
 };
 
-render(<App />, document.getElementById("root"));
+render(<BrowserRouter>
+  <App /></BrowserRouter>, document.getElementById("root"));

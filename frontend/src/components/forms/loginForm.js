@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Alert, Form, Input, Button } from "reactstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -69,7 +69,7 @@ export default function LoginForm() {
   return (
     <>
       {isLoggedIn ? (
-        <Redirect to="/" />
+        <Navigate to="/" />
       ) : (
         <Form className="form" onSubmit={handleLoginSubmit}>
           <Alert color={alerts.color} isOpen={alerts.visible}>

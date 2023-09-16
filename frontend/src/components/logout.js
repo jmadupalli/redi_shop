@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { AuthContext } from "../contexts/authContext";
 import "./styles/loginPage.scss";
@@ -14,7 +14,7 @@ function Logout() {
     })();
   });
   return isLoggedOut ? (
-    <Redirect to="/" />
+    <Navigate to="/" />
   ) : (
     <div className="login-page page-header" filter-color="orange">
       <div
